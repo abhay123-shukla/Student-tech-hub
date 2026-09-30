@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Tech Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation / Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="brand">
+        <span class="brand-icon">🚀</span>
+        <div>
+          <h1 class="brand-title">Student Tech Hub</h1>
+          <p class="brand-subtitle">Campus workshops, hackathons & technical seminars</p>
+        </div>
+      </div>
+      <div class="backend-status-badge" id="backendStatus">
+        <span class="status-indicator" id="statusDot"></span>
+        <span id="statusText">Checking Backend...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h2>Expand Your Skills. Build the Future.</h2>
+      <p>Connect with peer developers, explore hands-on technical sessions, and register in seconds.</p>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <main class="container main-layout">
+    
+    <!-- Left Column: Events List -->
+    <section class="events-section">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Upcoming Technical Events</h3>
+          <p class="section-subtitle">Click "Load Events" to fetch current listings from the FastAPI backend.</p>
+        </div>
+        <button id="loadEventsBtn" class="btn btn-primary">
+          <span class="btn-icon">⚡</span> Load Events
+        </button>
+      </div>
+
+      <!-- Events Container -->
+      <div id="eventsList" class="events-grid">
+        <!-- Event cards will be dynamically injected here by script.js -->
+        <div class="empty-state">
+          <p class="empty-icon">📅</p>
+          <h4>No Events Loaded Yet</h4>
+          <p>Click the <strong>Load Events</strong> button above to retrieve events from the backend server.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Registration Form -->
+    <section class="register-section">
+      <div class="card register-card">
+        <div class="card-header">
+          <h3 class="card-title">Student Registration</h3>
+          <p class="card-subtitle">Fill out your details to RSVP for upcoming sessions.</p>
+        </div>
+
+        <form id="registrationForm" class="registration-form" novalidate>
+          <div class="form-group">
+            <label for="studentName">Full Name <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="studentName" 
+              name="studentName" 
+              placeholder="e.g. Alex Johnson" 
+              required
+            >
+            <small class="form-hint" id="nameHint"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="studentEmail">Email Address <span class="required">*</span></label>
+            <input 
+              type="email" 
+              id="studentEmail" 
+              name="studentEmail" 
+              placeholder="e.g. alex@student.edu" 
+              required
+            >
+            <small class="form-hint" id="emailHint"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="eventSelect">Select Event (Optional)</label>
+            <select id="eventSelect" name="eventSelect">
+              <option value="">General Hub Registration</option>
+              <!-- Populated when events are loaded -->
+            </select>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-success btn-block">
+            <span>Register Now</span>
+          </button>
+        </form>
+
+        <!-- Notification Message Banner -->
+        <div id="formFeedback" class="feedback-banner hidden" role="alert"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>Student Tech Hub &bull; Built with HTML, CSS, JavaScript & Python FastAPI</p>
+      <p class="footer-links">
+        Backend API: <a href="http://127.0.0.1:8000" target="_blank" rel="noopener">http://127.0.0.1:8000</a> | 
+        API Documentation: <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener">Interactive Swagger Docs</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
